@@ -1,0 +1,17 @@
+
+   <div class="layui-form-item layui-form-text">
+       <label class="layui-form-label">审核意见</label>
+	     <div class="layui-input-block">
+	       <textarea placeholder="请输入内容" id="reason" class="layui-textarea" style="width:700px;"></textarea>
+	     </div>
+     </div>
+    
+      <div class="layui-form">
+      <div class="layui-form-item">
+       <label class="layui-form-label"></label>
+		    <div class="layui-inline">
+		     <button class="layui-btn" type="button" onclick="btnSave('true')">提交</button>
+		     <button class="layui-btn" type="button" onclick="btnSave('false')">驳回</button>
+		</div>
+      </div>
+     </div>

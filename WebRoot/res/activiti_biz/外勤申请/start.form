@@ -1,0 +1,11 @@
+
+
+   <label class="layui-form-label"><a href="#" style="color: red" onclick="openWindow()">选择审核人</a></label>
+    <div class="layui-input-inline">
+     <input type="hidden" name="userid" id="userid" class="layui-input">
+	 <input type="text"  id="getUsername" readonly="readonly" class="layui-input">
+    </div>
+    <div class="layui-input-inline">
+       <button type="button" class="layui-btn"onclick="submitForm('start')">立即提交</button>
+       <button type="button" class="layui-btn" onclick="clearForm()">返回</button>
+    </div>   

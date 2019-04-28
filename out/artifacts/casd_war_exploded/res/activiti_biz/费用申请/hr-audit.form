@@ -1,0 +1,10 @@
+
+ <div class="layui-form-item layui-form-text">
+	    <label class="layui-form-label">意见</label>
+	    <div class="layui-input-block">
+	      <textarea placeholder="请输入内容" id="reasons" class="layui-textarea" style="width:513px;min-height: 50px"></textarea>
+	    </div>
+	  </div>
+	    <div class="layui-input-inline">
+	       <button type="button" class="layui-btn"onclick="leave_pass()">提交</button>   
+ </div>  

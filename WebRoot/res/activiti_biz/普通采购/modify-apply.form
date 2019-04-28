@@ -1,0 +1,26 @@
+
+ <div class="layui-row" style="margin: 20px">
+     <div class="layui-form-item layui-form-text">
+       <label class="layui-form-label">审核意见</label>
+	     <div class="layui-input-block">
+	       <textarea placeholder="请输入内容" id="reason" class="layui-textarea"  width="500px"></textarea>
+	     </div>
+     </div>
+    
+      <div class="layui-form">
+      <div class="layui-form-item">
+		    <div class="layui-inline">
+		      <label class="layui-form-label"><a href="#" style="color: red" onclick="openWindow()">选择审核人</a></label>
+		      <div class="layui-input-inline">
+		        <input type="hidden" name="userid" id="userid" class="layui-input">
+		        <input type="text" name="username" id="username" readonly="readonly" class="layui-input">
+		      </div>
+		    </div>
+		    
+		    <div class="layui-inline">
+		     <button class="layui-btn" type="button" onclick="btnSave('true')">重新提交</button>
+		     <button class="layui-btn" type="button" onclick="btnSave('false')">结束流程</button>
+		</div>
+      </div>
+     </div>
+   </div>

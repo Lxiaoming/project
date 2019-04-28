@@ -1,0 +1,16 @@
+
+ <div class="layui-form-item" style= "width:850px;margin:0 auto;padding:0 25px;">
+    <div class="layui-inline">
+     <label class="layui-form-label"><a href="#" style="color: red" onclick="openWindow()">选择审核人</a></label>
+      <div class="layui-input-inline">
+        <input type="hidden" name="userid" id="userid" class="layui-input">
+	    <input type="text" name="username" id="username" readonly="readonly" class="layui-input">
+      </div>
+ </div>
+   <div class="layui-inline">
+      <div class="layui-input-inline">
+          <button class="layui-btn" type="button" onclick="notice_pass()">提交</button>
+          <button class="layui-btn" type="button" onclick="updateNot()">修改</button>
+      </div>
+    </div>
+  </div>

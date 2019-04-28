@@ -1,0 +1,9 @@
+
+   <div class="layui-form-item layui-form-text">
+       <label class="layui-form-label">审核意见</label>
+	     <div class="layui-input-block">
+	       <textarea placeholder="请输入内容" id="reason" class="layui-textarea" style="width:840px"></textarea>
+	     </div>
+     </div>
+       <button type="button" class="layui-btn" id="test9" onclick="contractapprovePass('true')">提交</button>
+       <button type="button" class="layui-btn layui-btn-normal"onclick="contractapprovePass('false')">驳回</button>

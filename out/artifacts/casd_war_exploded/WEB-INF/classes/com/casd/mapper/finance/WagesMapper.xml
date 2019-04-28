@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.casd.dao.finance.WagesDao">
+    <!-- 解决表名与字段不匹配 -->
+    <!-- type 类的全限定名, 或者一个类型别名
+         id 当前命名空间中的一个唯一标识，用于标识一个result map
+         result 注入到字段或 JavaBean 属性的普通结果
+     -->
+
+    
+    <!-- id 在命名空间中唯一的标识符，可以被用来引用这条语句
+         resultMap 外部 resultMap 的命名引用
+         resultType 从这条语句中返回的期望类型的类的完全限定名或别名。
+     -->
+     <!-- 存在时修改 不存在时添加 -->
+    <insert id="save_userWages" parameterType="com.casd.entity.finance.Wages">
+        insert into  finance_wages_table (finance_wages_id,uc_wage_userid,
+        finance_wages_attCount,finance_wages_vacaCount,finance_wages_leaveCount,uc_wage_base,uc_wage_post,uc_wage_achieve,
+        uc_wage_subsidy,uc_wage_socSec,uc_wage_accFund,uc_wage_wages,uc_wage_tax,uc_wage_dedu,uc_wage_yearMon,uc_wage_baseTotal
+        ,uc_wage_realhair,uc_wage_company_name,uc_wage_center_name,uc_wage_actualDay
+        ) 
+        VALUES  
+	        (0,#{uc_wage_userid},#{finance_wages_attCount},#{finance_wages_vacaCount},#{finance_wages_leaveCount},#{uc_wage_base},#{uc_wage_post},
+	        #{uc_wage_achieve},#{uc_wage_subsidy},#{uc_wage_socSec},#{uc_wage_accFund},#{uc_wage_wages},
+	        #{uc_wage_tax},#{uc_wage_dedu},#{uc_wage_yearMon},#{uc_wage_baseTotal},#{uc_wage_realhair},#{uc_wage_company_name},
+	        #{uc_wage_center_name},#{uc_wage_actualDay}
+	        )  
+	      <!--   on duplicate key update construct_supplier_id=#{construct_supplier_id},construct_supplier_name=#{construct_supplier_name},
+	    						construct_supplier_addr=#{construct_supplier_addr},construct_supplier_tel=#{construct_supplier_tel}
+	    						,construct_supplier_charger=#{construct_supplier_charger} -->
+    </insert>
+    
+    
+    <select id="base_Wages" parameterType="int" resultType="map">
+		select *  from uc_wage where uc_wage_userId= #{uc_wage_userId} 
+	</select>
+    
+     
+     
+      <insert id="submitWages" parameterType="com.casd.entity.finance.Base_wages">
+           insert into  uc_wage (uc_wage_id,uc_wage_userId,uc_wage_base,uc_wage_post,uc_wage_achieve,
+        uc_wage_subsidy,uc_wage_socSec,uc_wage_accFund,uc_wage_status,uc_wage_actualDay,uc_wage_tax
+        ) 
+        VALUES  
+	        (#{uc_wage_id},#{uc_wage_userId},#{uc_wage_base},#{uc_wage_post},#{uc_wage_achieve},
+	        #{uc_wage_subsidy},#{uc_wage_socSec},#{uc_wage_accFund},#{uc_wage_status},#{uc_wage_actualDay},#{uc_wage_tax}
+	        )  
+	    on duplicate key update uc_wage_id=#{uc_wage_id},uc_wage_userId=#{uc_wage_userId},
+	    						uc_wage_base=#{uc_wage_base},uc_wage_post=#{uc_wage_post}
+	    						,uc_wage_achieve=#{uc_wage_achieve},uc_wage_subsidy=#{uc_wage_subsidy}
+	    						,uc_wage_socSec=#{uc_wage_socSec},uc_wage_accFund=#{uc_wage_accFund}
+	    						,uc_wage_status=#{uc_wage_status},uc_wage_actualDay=#{uc_wage_actualDay}
+	    						,uc_wage_tax=#{uc_wage_tax}
+	    						
+    </insert>
+  
+  	<delete id="dele_userWages" parameterType="int" >
+  		DELETE FROM finance_wages_table where finance_wages_id=#{finance_wages_id}
+  	
+  	</delete>
+  	
+  	<update id="updateUc_wage"  parameterType="com.casd.entity.finance.Base_wages">
+        update uc_wage 
+        <set>
+         	<if test="uc_wage_userId !=null">
+         		uc_wage_userId=#{uc_wage_userId},
+         	</if>
+     	    <if test="uc_wage_base!=null">
+         		uc_wage_base=#{uc_wage_base},
+         	</if>
+            <if test="uc_wage_post!=null">
+         		uc_wage_post=#{uc_wage_post},
+         	</if>
+         	<if test="uc_wage_achieve!=null">
+         		uc_wage_achieve=#{uc_wage_achieve},
+         	</if>
+         	<if test="uc_wage_subsidy!=null">
+         		uc_wage_subsidy=#{uc_wage_subsidy},
+         	</if>
+         	<if test="uc_wage_socSec!=null">
+         		uc_wage_socSec=#{uc_wage_socSec},
+         	</if>
+         	<if test="uc_wage_accFund!=null">
+         		uc_wage_accFund=#{uc_wage_accFund},
+         	</if>
+         	<if test="uc_wage_actualDay!=null">
+         		uc_wage_actualDay=#{uc_wage_actualDay},
+         	</if>
+         	<if test="uc_wage_status!=null">
+         		uc_wage_status=#{uc_wage_status},
+         	</if>
+         	<if test="uc_wage_tax!=null">
+         		uc_wage_tax=#{uc_wage_tax}
+         	</if>
+         	
+         where uc_wage_id=#{uc_wage_id}
+    </set>
+ </update>
+	 <update id="updateUcwages"  parameterType="map">
+	       update ${where}
+	 </update>
+  
+</mapper>
+
+
