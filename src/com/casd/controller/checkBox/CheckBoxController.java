@@ -37,7 +37,7 @@ public class CheckBoxController {
 	
 	@Autowired
 	private ConstructService constructService;
-	
+	//23333
 	@RequestMapping(value = "/userListCheck", method = RequestMethod.GET)
 	public ModelAndView userListCheck(HttpServletRequest request) {
 		ModelAndView mv = new ModelAndView();
